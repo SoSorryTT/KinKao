@@ -1,5 +1,8 @@
 package ku.kinkao.service;
 
+import java.time.Instant;
+import ku.kinkao.dto.SignupDto;
+import org.modelmapper.ModelMapper;
 import ku.kinkao.model.Member;
 import ku.kinkao.repository.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,15 +19,17 @@ public class SignupService {
    @Autowired
    private PasswordEncoder passwordEncoder;
 
+   @Autowired
+   private ModelMapper modelMapper;
+
    public boolean isUsernameAvailable(String username) {
        return repository.findByUsername(username) == null;
    }
 
-   public int createMember(Member member) {
-       Member newMember = new Member();
-       newMember.setFirstName(member.getFirstName());
-       newMember.setLastName(member.getLastName());
-       newMember.setUsername(member.getUsername());
+   public int createMember(SignupDto member) {
+       Member newMember = modelMapper.map(member, Member.class);
+       newMember.setCreatedAt(Instant.now());
+
 
        String hashedPassword = passwordEncoder.encode(member.getPassword());
 

@@ -1,13 +1,17 @@
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/repository/RestaurantRepository.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/controller/RestaurantController.java
+/Users/mark/Documents/KinKao/src/main/java/ku/kinkao/dto/SignupDto.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/model/Restaurant.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/config/SecurityConfig.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/service/UserDetailsServiceImp.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/config/UserServicesConfiguration.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/repository/MemberRepository.java
+/Users/mark/Documents/KinKao/src/main/java/ku/kinkao/config/ComponentConfig.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/controller/AuthController.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/controller/SignupController.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/model/Member.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/KinkaoApplication.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/service/SignupService.java
+/Users/mark/Documents/KinKao/src/main/java/ku/kinkao/dto/RestaurantDto.java
 /Users/mark/Documents/KinKao/src/main/java/ku/kinkao/controller/HomeController.java
+/Users/mark/Documents/KinKao/src/main/java/ku/kinkao/service/RestaurantService.java
