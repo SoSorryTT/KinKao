@@ -4,34 +4,17 @@ import ku.kinkao.dto.ReviewRequest;
 import ku.kinkao.service.JwtAccessTokenService;
 import ku.kinkao.service.RestaurantService;
 import ku.kinkao.service.ReviewService;
-
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/review")
 public class ReviewController {
-
-   @Autowired
-   private JwtAccessTokenService jwtService;
-
-   @GetMapping("/review")
-   public String getReviewPage(Model model) {
-
-       String jwtResponse = jwtService.requestAccessToken();
-
-       System.out.println("Token: " + jwtResponse);
-
-       return "review";
-   }
 
    @Autowired
    private RestaurantService restaurantService;
@@ -60,9 +43,10 @@ public class ReviewController {
 
    @PostMapping("/add")
    public String createReview(@ModelAttribute ReviewRequest review,
-                               Model model) {
-       reviewService.createReview(review);
+                               Model model, Principal principal) {
+        String username = principal.getName();
+        review.setUsername(username);
+        reviewService.createReview(review);
        return "redirect:/review/" + review.getRestaurantId();
    }
-
 }
