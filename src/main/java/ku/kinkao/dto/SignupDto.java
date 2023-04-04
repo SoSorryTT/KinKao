@@ -7,6 +7,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import ku.kinkao.validation.ValidPassword;
+
 @Data
 public class SignupDto {
    @NotBlank
@@ -14,6 +16,7 @@ public class SignupDto {
    private String username;
 
    @NotBlank
+   @ValidPassword
    @Size(min=12, max=128, message = "Password must have at least 12 characters")
    private String password;
 
