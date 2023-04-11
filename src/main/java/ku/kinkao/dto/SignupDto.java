@@ -30,5 +30,10 @@ public class SignupDto {
    @Email
    @NotBlank
    private String email;
+
+   @NotBlank
+   @Pattern(regexp = "^(ROLE_ADMIN|ROLE_USER)$",
+            message = "Role is in an incorrect format.")
+   private String role;
 }
 
